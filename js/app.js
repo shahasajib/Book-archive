@@ -1,5 +1,5 @@
 /*............................
-..... Input Part Start........
+..... Input Part..............
 .............................. */
 const searchBooks = () => {
     const searchInput = document.getElementById('input');
@@ -18,9 +18,7 @@ const searchBooks = () => {
             .then((data) => displayData(data.docs));
     }
 }
-/*............................
-....... Input Part End........
-.............................. */
+
 
 
 
@@ -46,9 +44,9 @@ const displayData = booksData => {
                         <img style="height: 15rem;" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top img-fluid" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${book.title}</h5>
-                            <h5 class="card-title">${book.author_name}</h5>
-                            <p class="card-text"><span>${book.publisher}</span></p>
-                            <p class="card-text">${book.first_publish_year}</p>
+                            <h6 class="card-title">Author: <span>${book.author_name.slice(0, 1) ? book.author_name.slice(0, 1) : ""}</span></h6>
+                            <p class="card-text">Publisher: <span>${book.publisher.slice(0, 1)}</span></p>
+                            <p class="card-text">Publish Year: <span>${book.first_publish_year}</span></p>
                         </div>
                     </div>
                 </div>`
@@ -60,6 +58,3 @@ const displayData = booksData => {
     ...forEach Part End..
     ..................... */
 }
-/* ......................................
-..........Display Data Part End..........
-......................................... */
